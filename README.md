@@ -16,7 +16,7 @@ Users can create posts, edit them and delete them. Users can also comment on oth
 
 ### Preventing Cyber-crime
 
-The ability to edit and delete posts can be used in a not so good way. Therefore, posts can be edited only within 5 minutes of being posted, which is enough time to fix any typos, but not enough to launch a cyber attack. Also, users have been given the power to report posts, and any post with more than 2 reports is removed from the sites. This number has been kept small for ease of testing.
+The ability to edit and delete posts can be used in a not so good way. Therefore, posts can be edited only within 5 minutes of being posted, which is enough time to fix any typos, but not enough to launch a cyber attack. Also, users have been given the power to report posts, and any post with more than 2 reports is removed from the site. This number has been kept small for ease of testing.
 
 This is all for now.
 I'll be waiting for your feedback.
