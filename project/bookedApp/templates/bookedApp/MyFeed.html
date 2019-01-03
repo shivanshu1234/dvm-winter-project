@@ -1,0 +1,16 @@
+<a href="/bookedApp">Back Home</a>
+<h1>My Feed</h1>
+{% if posts %}
+   
+    {% for post in posts %}
+        <div class = "Post">
+                    <a href="/bookedApp/{{ post.id }}/">{{post.heading}}</a>
+                    <p>By <a href="/bookedApp/{{ post.user.id }}/ViewProfile/">{{ post.user.username }}</a></p>
+                    <p>{{post.comments.count}} Comment(s)</p>
+        </div>
+        {% endfor %}
+
+{% else %}
+    <p>Posts from people you follow will appear here.</p>
+
+{% endif %}

@@ -1,0 +1,34 @@
+<a href = "/bookedApp">Back Home</a> 
+<h1>{{ other_user.username }}'s Profile</h1>
+
+<p>Username: {{ other_user.username }}</p>
+
+{% if user_follows_other_user %}
+    <a href="/bookedApp/{{ other_user.id }}/UnFollow">UnFollow</a>
+
+{% else %}
+<a href="/bookedApp/{{ other_user.id }}/Follow">Follow</a>
+    
+{% endif %}
+
+<h2>{{ other_user.username }}'s posts:</h2>
+
+
+{% if posts %}
+    
+    {% for post in posts %}
+        <div class = "Post">
+                    <a href="/bookedApp/{{ post.id }}/">{{post.heading}}</a>
+                    <p>By <a href="/bookedApp/{{ post.user.id }}/ViewProfile/">{{ post.user.username }}</a></p>
+                    <p>{{post.comments.count}} Comment(s)</p>
+        </div>
+        {% endfor %}
+
+{% else %}
+    <p>This user hasn't posted anything yet.</p>
+
+{% endif %}
+    
+
+    
+    

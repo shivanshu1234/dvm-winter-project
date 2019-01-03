@@ -1,0 +1,10 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/NewComment_stylesheet.css' %}">
+<h2>Add a comment.</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>   
+    <a href="/bookedApp/{{ post.id }}/" class="button">Cancel</a>
+</form>

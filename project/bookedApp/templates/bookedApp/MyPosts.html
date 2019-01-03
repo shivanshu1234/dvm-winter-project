@@ -1,0 +1,19 @@
+<a id = "HomeLink" href="/bookedApp/">Back Home</a>
+<h1>Your Posts</h1>
+
+{% for post in posts_by_user %}
+    
+    <a href="/bookedApp/{{ post.id }}/">{{post}}</a>
+    <p></p>
+    <a href="/bookedApp/{{ post.id }}/EditPost">Edit Post</a>
+    <p></p>
+    
+    <a href = "/bookedApp/{{ post.id }}/ConfirmDeletePost">Delete Post</a>
+    <p>Posted on {{ post.date }}</p>
+    <p>{{post.comments.count}} Comments</p>
+
+{% empty %}
+    <p>You haven't posted anything yet!</p>
+    
+{% endfor %}
+    

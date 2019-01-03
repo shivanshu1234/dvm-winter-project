@@ -1,0 +1,81 @@
+#logout{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+@font-face{
+    font-family: "MadeCanvas";
+    src: url('MadeCanvas.otf')
+}
+
+#mainHeading{
+    font-weight: 300;
+    font-size: 50px;
+    font-family: 'MadeCanvas';
+    width: 220px;
+    padding-bottom: 0px;
+    margin: 1px; 
+}
+
+#NewPostLink{
+    position: absolute;
+    top: 30px;
+    right: 10px;
+}
+
+#MyPostsLink{
+    position: absolute;
+    top: 55px;  
+    right: 10px;
+}
+
+#ViewProfileLink{
+    position: absolute;
+    top: 80px;
+    right: 10px;
+}
+
+#FollowersLink{
+    position: absolute;
+    top: 105px;
+    right: 10px;
+}
+
+
+#FollowingLink{
+    position: absolute;
+    top: 130px;
+    right: 10px;
+}
+
+#MyFeedLink{
+    position: absolute;
+    top: 155px;
+    right: 10px;
+}
+
+.Post{
+    display: block;
+    width: 42%;
+    padding: 10px;
+    background-color: azure;
+    margin: 10px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+text-decoration: none;
+}
+
+a:hover {
+text-decoration: underline;
+}
+
+a:active {
+text-decoration: underline;
+}
+  

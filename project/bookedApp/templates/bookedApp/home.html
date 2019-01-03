@@ -1,0 +1,32 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/home_stylesheet.css' %}">
+
+<h1 id = "MainHeading">BOOKED.</h1>
+{% if latest_post_list %}
+   
+    {% for post in latest_post_list %}
+        <div class = "Post">
+                    <a href="/bookedApp/{{ post.id }}/">{{post.heading}}</a>
+                    <p>By <a href="/bookedApp/{{ post.user.id }}/ViewProfile/">{{ post.user.username }}</a></p>
+                    <p>{{post.comments.count}} Comment(s)</p>
+        </div>
+        {% endfor %}
+
+{% else %}
+    <p>Posts from people you follow will appear here.</p>
+
+{% endif %}
+
+<a id = "logout" href = "logout/">Logout</a>
+<a id = "NewPostLink" href = "NewPost/">Create a new post</a>
+<a id = "MyPostsLink" href = "MyPosts/">My posts</a>
+<a id = "ViewProfileLink" href = "MyProfile/">My Profile</a>
+<a id = "FollowersLink" href="Followers/">Followers</a>
+<a id = "FollowingLink" href="Following/">Following</a>
+<a id = "MyFeedLink" href="MyFeed/">My  Feed</a>
+
+
+
+
+ 
+    

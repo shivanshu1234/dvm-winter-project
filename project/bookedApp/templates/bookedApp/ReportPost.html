@@ -1,0 +1,7 @@
+<h1>Report Post: {{ post.heading }}</h1>
+<form method="POST" >
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Report</button>
+    <a href="/bookedApp/{{ post.id }}" class="button">Cancel</a>
+</form>

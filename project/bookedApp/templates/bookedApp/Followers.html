@@ -1,0 +1,13 @@
+<h1>Your followers</h1>
+{% if followers %}
+    
+    
+    {% for profile in followers %}
+        <a href="/bookedApp/{{ profile.user.id }}/ViewProfile/">{{ profile.user.username }}</a>
+    {% endfor %}
+
+{% else %}
+    <p>You don't have any followers yet!</p>
+    <p>Creating new posts helps a lot in gaining followers.</p>    
+
+{% endif %}

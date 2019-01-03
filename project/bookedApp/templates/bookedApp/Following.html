@@ -1,0 +1,13 @@
+<h1>People you're following</h1>
+
+
+{% if following %}        
+    
+    {% for user in following %}
+        <a href="/bookedApp/{{ user.id }}/ViewProfile/">{{ user.username }}</a>
+    {% endfor %}
+
+{% else %}
+    <p>You are not following anyone yet!</p>
+
+{% endif %}

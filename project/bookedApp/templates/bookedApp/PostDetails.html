@@ -1,0 +1,32 @@
+<a id = "HomeLink" href="/bookedApp/"><--- Back Home</a>
+
+{% if reported %}
+    <p>You have reported this post.</p>
+{% else %}
+    <a href="/bookedApp/{{ post.user.id }}/{{ post.id }}/ReportPost">Report Post</a>
+{% endif %}
+    
+
+<h1>{{ post.heading }}</h1>
+
+<p>By <strong>{{ post.user }}</strong></p>
+<p>{{ post.date }}</p>
+<p>{{ post.text }}</p>
+
+<hr>
+
+<h2>Comments.</h2>
+<a href="/bookedApp/{{ post.id }}/NewComment">Add Comment</a>
+{% for comment in post.comments.all %}
+    <div class="comment">
+        <p>{{ comment.text }}</p>
+        <div class="comment_date">{{ comment.date }}</div>
+        <strong>By {{ comment.user }}</strong>
+    </div>
+    
+{% empty %}
+    <p>Be the first one to comment!</p>
+    
+{% endfor %}
+    
+

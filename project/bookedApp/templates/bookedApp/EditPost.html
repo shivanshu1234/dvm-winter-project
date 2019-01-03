@@ -1,0 +1,14 @@
+ 
+{% if post_is_editable %}
+        
+    <h1>Edit post</h1>
+    <form method="POST" >
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+
+{% else %}
+    <p>You can edit posts only within 5 minutes of posting them.</p>
+
+{% endif %}

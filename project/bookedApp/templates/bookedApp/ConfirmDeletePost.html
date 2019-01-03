@@ -1,0 +1,19 @@
+<script type = "text/javascript">
+
+    function ConfirmDelete(){
+        
+        var user_choice = window.confirm("You are going to delete the post: \"{{ heading }}\"");
+
+        if (user_choice == true){
+            window.location = "/bookedApp/{{ id }}/DeletePost";
+        } 
+        
+        else{
+            window.location = "/bookedApp/MyPosts"
+        }
+
+    }
+    
+    ConfirmDelete()
+
+</script>
