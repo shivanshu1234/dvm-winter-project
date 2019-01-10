@@ -3,14 +3,17 @@
 
 <p>Username: {{ other_user.username }}</p>
 
-{% if user_follows_other_user %}
-    <a href="/bookedApp/{{ other_user.id }}/UnFollow">UnFollow</a>
-
-{% else %}
-<a href="/bookedApp/{{ other_user.id }}/Follow">Follow</a>
+{% if not own_profile %}
     
-{% endif %}
+    {% if user_follows_other_user %}
+        <a href="/bookedApp/{{ other_user.id }}/UnFollow">UnFollow</a>
 
+    {% else %}
+        <a href="/bookedApp/{{ other_user.id }}/Follow">Follow</a>
+
+    {% endif %}
+
+{% endif %}
 <h2>{{ other_user.username }}'s posts:</h2>
 
 

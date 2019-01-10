@@ -189,6 +189,11 @@ def ViewProfile(request, user_id):
     current_user = request.user
     other_user = get_object_or_404(User, id = user_id)
     posts = Post.objects.filter(user = other_user).order_by('-date')
+
+    if current_user == other_user:
+        own_profile = True
+    else:
+        own_profile = False
     
     if other_user in current_user.userprofile.follows.all():
         user_follows_other_user = True
@@ -198,7 +203,8 @@ def ViewProfile(request, user_id):
     context = {
         'other_user': other_user, 
         'user_follows_other_user':user_follows_other_user,
-        'posts':posts
+        'posts':posts,
+        'own_profile':own_profile,
         }
 
     return render(request, template_name = 'bookedApp/ViewProfile.html', context = context)
