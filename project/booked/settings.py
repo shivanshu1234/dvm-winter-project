@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bookedApp.apps.BookedappConfig',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -61,6 +62,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media', # For profile pictures feature.
+                'social_django.context_processors.backends', # For Google Oauth 2.0
+                'social_django.context_processors.login_redirect', # For Google Oauth 2.0
             ],
         },
     },
@@ -105,14 +109,24 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
-]
+    ]
+
+MEDIA_URL = '/media/' # The URL that media is displayed on.
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # Directory where media is stored.
 
 LOGIN_URL = '/bookedApp/login/'
 LOGIN_REDIRECT_URL = '/bookedApp/'
 LOGOUT_REDIRECT_URL = '/bookedApp/login/'
 
+AUTHENTICATION_BACKENDS = (
+ 'social_core.backends.open_id.OpenIdAuth',  # For Google authentication.
+ 'social_core.backends.google.GoogleOpenId',  # For Google authentication.
+ 'social_core.backends.google.GoogleOAuth2',  # For Google authentication.
+ 
+ 'django.contrib.auth.backends.ModelBackend',
+)
 
+# Import the sensitive settings which are not shared with anyone.
 from booked.local_settings import *

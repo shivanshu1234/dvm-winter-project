@@ -1,8 +1,9 @@
 <a href = "/bookedApp">Back Home</a> 
 <h1>Your Profile</h1>
 
+<img src="{{ user.userprofile.picture.url }}">
 <p>Username: {{ user.username }}</p>
 <p>E-mail: {{ user.email }}</p>
 
 <a href="/bookedApp/EditProfile">Edit Profile</a>
- 
+<a href = "/bookedApp/ChangeProfilePicture">Change Profile Picture</a>

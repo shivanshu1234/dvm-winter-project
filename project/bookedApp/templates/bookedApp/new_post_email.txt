@@ -1,0 +1,8 @@
+{{ user }} made a new post!
+
+It is titled "{{ heading }}"
+
+To see it, visit your Booked profile now!
+
+To disable these emails for this user, visit this user's profile and click on 
+"Disable Email Notifications" 

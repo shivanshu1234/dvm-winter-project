@@ -16,6 +16,8 @@ urlpatterns = [
     path('Followers/', views.Followers, name = 'Followers'),
     path('Following/', views.Following, name = 'Following'),
     path('MyFeed/', views.MyFeed, name = 'MyFeed'),
+    path('ChangeProfilePicture/', views.ChangeProfilePicture, name = 'ChangeProfilePicture'),
+    path('GenerateExcelSheet/<str:SelectedIDs>', views.GenerateExcelSheet, name = 'GenerateExcelSheet'),
     path('<user_id>/ViewProfile/', views.ViewProfile, name = 'ViewProfile'),
     path('<user_id>/<post_id>/ReportPost/', views.ReportPost, name = 'ReportPost'),
     path('<post_id>/EditPost/', views.EditPost, name = 'EditPost'),
@@ -26,5 +28,7 @@ urlpatterns = [
     path('<post_id>/', views.PostDetails, name = 'PostDetails'),
     path('<user_id>/Follow', views.Follow, name = 'Follow'),
     path('<user_id>/UnFollow', views.UnFollow, name = 'UnFollow'),
+    path('<user_id>/EmailFollow', views.EmailFollow, name = 'EmailFollow'),
+    path('<user_id>/EmailUnFollow', views.EmailUnFollow, name = 'EmailUnFollow'),
 
-]
+] 

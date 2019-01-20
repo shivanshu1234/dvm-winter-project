@@ -7,15 +7,23 @@
     
     {% if user_follows_other_user %}
         <a href="/bookedApp/{{ other_user.id }}/UnFollow">UnFollow</a>
-
+        
+        {% if emails_enabled %}
+            <a href = "/bookedApp/{{ other_user.id }}/EmailUnFollow">Disable Email Notifications</a>
+        {% else %}
+            <a href = "/bookedApp/{{ other_user.id }}/EmailFollow">Enable Email Notifications</a>
+        {% endif %}
+            
     {% else %}
-        <a href="/bookedApp/{{ other_user.id }}/Follow">Follow</a>
+        <a href="/bookedApp/{{ other_user.id }}/Follow">Follow</a><br>
 
     {% endif %}
 
 {% endif %}
-<h2>{{ other_user.username }}'s posts:</h2>
 
+<img src="{{ other_user.userprofile.picture.url }}">
+
+<h2>{{ other_user.username }}'s posts:</h2>
 
 {% if posts %}
     

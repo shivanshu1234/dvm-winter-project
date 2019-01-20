@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 from django.db.models.signals import post_save
-
+from PIL import Image
 
 class Post(models.Model):
     heading = models.CharField(max_length = 200)
@@ -29,13 +29,25 @@ class Comment(models.Model):
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete = models.CASCADE, null = True)
     follows = models.ManyToManyField(User,  related_name = 'followers', symmetrical = False)
+    EmailFollows = models.ManyToManyField(User, related_name = 'EmailFollowers', symmetrical = False)
+    picture = models.ImageField(upload_to = 'profile_picture', blank = True, default = 'default.jpeg')
 
     def __str__(self):
         try:
             return "UserProfile object of " + self.user.username
         except:
             return "Unrelated UserProfile object with id = " + str(self.id)
-    
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        profile_pic = Image.open(self.picture.path)
+        
+        if profile_pic.height > 300 or profile_pic.width > 300:
+            output_size = (300, 300)
+            profile_pic.thumbnail(output_size)
+            profile_pic.save(self.picture.path)
+
+
 def create_profile(sender, **kwargs):
     """
     Creates a new UserProfile object. 

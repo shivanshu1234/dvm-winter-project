@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post, Comment, Report
+from .models import Post, Comment, Report, UserProfile
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
@@ -55,5 +55,9 @@ class NewReportForm(forms.ModelForm):
         model = Report
         fields = ("reason", "detailed_reason")
         
+class PictureForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ['picture']
 
     
