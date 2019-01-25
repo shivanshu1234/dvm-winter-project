@@ -408,7 +408,3 @@ def GenerateExcelSheet(request, SelectedIDs):
     
     response['Content-Disposition'] = 'attachment; filename = user_data.xlsx'
     return response
-
-
-
- 
